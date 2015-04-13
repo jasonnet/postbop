@@ -18,5 +18,5 @@ Bug reports and fixes are welcome.  Please use normal github processes to help o
 
 ## documentation
 
-- [javadoc](http://jasonnet.github.io/bytes/javadoc/)
+- [javadoc](http://jasonnet.github.io/postbop/javadoc/)
 - [prebop](http://prebop.sourceforge.net/) - original documentation which has not changed much
