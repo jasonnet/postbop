@@ -1,0 +1,247 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" >
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.jasonnet</groupId>
+  <artifactId>jasonnet-postbop</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>postbop</name>
+  <description>Postbop Mulit-Language Preprocessor</description>
+  <url>https://github.com/jasonnet/postbop</url>
+
+  <issueManagement>
+    <url>https://github.com/jasonnet/postbop/issues</url>
+    <system>GitHub Issues</system>
+  </issueManagement>
+
+  <licenses>
+      <license>
+          <name>CPL</name>
+          <url>http://opensource.org/licenses/cpl1.0.php</url>
+        </license>
+  </licenses>
+
+  <!-- scm>
+    <url>https://github.com/scalegraph/propelgraph</url>
+    <connection>scm:git:git://github.com/scalegraph/propelgraph.git</connection>
+    <developerConnection>scm:git:git@github.com:scalegraph/propelgraph.git</developerConnection>
+  </scm-->
+
+
+  <developers>
+    <developer>
+      <email>nnd110423githb@smallcue.com</email>
+      <name>Jason Crawford</name> 
+      <url>http://jasonnet.us/</url>
+      <id>jasonnet</id> 
+    </developer>
+    <developer>
+      <email>nnd110423githb@smallcue.com</email>
+      <name>Bob Foster</name> 
+      <url>https://sourceforge.net/u/bobfoster/profile/</url>
+      <id>bobfoster</id> 
+    </developer>
+  </developers>
+
+<!--- dependent pom.xml files will neeed this:
+  <repositories>
+      <repository>
+          <id>jasonnetorg_releases</id>
+          <url>http://maven.jasonnet.org/maven-repository/maven.jasonnet.org/releases/</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>false</enabled></snapshots>
+      </repository>
+      <repository>
+          <id>jasonnetorg_snapshots</id>
+          <url>http://maven.jasonnet.org/maven-repository/maven.jasonnet.org/snapshots/</url>
+          <releases><enabled>false</enabled></releases>
+          <snapshots><enabled>true</enabled></snapshots>
+      </repository>
+  </repositories>
+-->
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <build>
+      <extensions>
+          <extension>
+              <groupId>org.apache.maven.wagon</groupId>
+              <artifactId>wagon-ssh-external</artifactId>
+              <version>2.6</version>
+          </extension>
+      </extensions>
+      <plugins>
+	<!--plugin>
+	  <groupId>com.github.github</groupId>
+	  <artifactId>downloads-maven-plugin</artifactId>
+	  <version>0.6</version>
+	  <configuration>
+	    <description>Official ${project.name} build of the ${project.version} release</description>
+	    <override>true</override>
+	    <includeAttached>true</includeAttached>
+	    <server>github</server>
+	  </configuration>
+	  <executions>
+	    <execution>
+	      <goals>
+		<goal>upload</goal>
+	      </goals>
+	      <phase>install</phase>
+	    </execution>
+	  </executions>
+	</plugin-->
+	<plugin>
+	  <groupId>org.apache.maven.plugins</groupId>
+	  <artifactId>maven-site-plugin</artifactId>
+	  <version>3.0</version>
+	  <configuration>
+	    <reportPlugins>
+	      <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-project-info-reports-plugin</artifactId>
+              <version>2.2</version>
+              <configuration>
+                  <dependencyDetailsEnabled>true</dependencyDetailsEnabled>
+                  <dependencyLocationsEnabled>true</dependencyLocationsEnabled>
+              </configuration>
+	      </plugin>
+	      <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-javadoc-plugin</artifactId>
+              <version>2.8</version>
+	      </plugin>
+	      <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-surefire-report-plugin</artifactId>
+              <version>2.6</version>
+	      </plugin>
+	      <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-checkstyle-plugin</artifactId>
+              <version>2.6</version>
+	      </plugin>
+	    </reportPlugins>
+	  </configuration>
+	</plugin>
+	<plugin>
+	  <groupId>org.apache.maven.plugins</groupId>
+	  <artifactId>maven-compiler-plugin</artifactId>
+      <version>3.1</version>
+	  <configuration>
+	    <source>1.6</source>
+	    <target>1.6</target>
+            <!-- compilerArgument> -Xlint:unchecked</compilerArgument -->
+ 	  </configuration>
+	</plugin>
+	<plugin>
+	  <groupId>org.apache.maven.plugins</groupId>
+	  <artifactId>maven-jar-plugin</artifactId>
+      <version>2.5</version>
+	  <configuration>
+	    <archive>
+	      <manifest>
+		<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+		<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+	      </manifest>
+	    </archive>
+	  </configuration>
+	</plugin>
+	<plugin>
+	  <groupId>org.apache.maven.plugins</groupId>
+	  <artifactId>maven-javadoc-plugin</artifactId>
+      <version>2.8</version>
+      <configuration>
+          <links>
+          </links>
+      </configuration>
+      <executions>
+          <execution>
+              <goals>
+                  <goal>jar</goal>
+              </goals>
+          </execution>
+      </executions>
+    </plugin>
+	<plugin>
+	  <groupId>org.apache.maven.plugins</groupId>
+	  <artifactId>maven-source-plugin</artifactId>
+      <version>2.3</version>
+      <executions>
+	    <execution>
+	      <goals>
+              <goal>jar</goal>
+	      </goals>
+	    </execution>
+	  </executions>
+	</plugin>
+	<plugin>
+        <groupId>com.github.github</groupId>
+        <artifactId>site-maven-plugin</artifactId>
+        <version>0.7</version>
+        <configuration>
+            <message>Building site for ${project.version}</message>
+            <server>github</server>
+        </configuration>
+        <executions>
+            <execution>
+                <goals>
+                    <goal>site</goal>
+                </goals>
+                <phase>site</phase>
+            </execution>
+        </executions>
+    </plugin>
+
+      </plugins>
+  </build>
+
+  <distributionManagement>
+      <repository>
+          <id>maven.jasonnetorg.releases</id><!-- will need ~/.ssh/id_rsa* support and ~/.m2/setting.xml should specify the mavenuser account for this to work -->
+          <name>jasonnet.org release repositories</name>
+          <url>scpexe://maven.jasonnet.org/maven-repository/maven.jasonnet.org/releases/</url>
+      </repository>
+      <snapshotRepository>
+          <id>maven.jasonnetorg.snapshots</id><!-- will need ~/.ssh/id_rsa* support and ~/.m2/setting.xml should specify the mavenuser account for this to work -->
+          <name>jasonnet.org snapshot repositories</name>
+          <url>scpexe://maven.jasonnet.org/maven-repository/maven.jasonnet.org/snapshots/</url>
+      </snapshotRepository>
+  </distributionManagement>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.ant</groupId>
+      <artifactId>ant</artifactId>
+      <version>1.8.2</version>
+    </dependency>
+  </dependencies>
+
+  <dependencyManagement>
+        <dependencies>
+        </dependencies>
+  </dependencyManagement>
+
+
+  <reporting>
+      <plugins>
+          <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-javadoc-plugin</artifactId>
+              <version>2.8</version>
+              <configuration>
+                  <aggregate>true</aggregate>
+              </configuration>
+          </plugin>
+      </plugins>
+  </reporting>
+
+</project>
+
