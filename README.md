@@ -18,5 +18,5 @@ Bug reports and fixes are welcome.  Please use normal github processes to help o
 
 ## documentation
 
-- [prebop](http://prebop.sourceforge.net/) - original documentation which has not changed much
+- [prebop](http://prebop.sourceforge.net/) - original prebop documentation which largely also still applies to postbop
 - [javadoc](http://jasonnet.github.io/postbop/javadoc/) - in case you'd like to call this from your code
