@@ -14,3 +14,7 @@ Bob's code has a CPL license on it so we'll continue to use that.  (CPL is the p
 ## contributing
 Bug reports and fixes are welcome.  Please use normal github processes to help out.
 
+## documentation
+
+- [javadoc](http://jasonnet.github.io/bytes/javadoc/)
+- [prebop](http://prebop.sourceforge.net/) - original documentation which has not changed much
