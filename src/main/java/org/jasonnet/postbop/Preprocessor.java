@@ -185,7 +185,7 @@ public class Preprocessor {
 	}
 
 	private void copyFile(File file, File outFile) throws PreprocessorError {
-		if (file.equals(outFile)) return;
+		try { if (file.getCanonicalPath().equals(outFile.getCanonicalPath())) return; } catch (IOException exc) {}
 		try {
 			if (!outFile.createNewFile())
 				error("Output file already exists "+outFile.getAbsolutePath());
