@@ -98,6 +98,7 @@ public class Main {
 		Filetype jtype = new Filetype();
 		jtype.setName("Java");
 		jtype.setExtensions("java");
+		jtype.setOutextension("java");
 		jtype.setCommentbegin("/*");
 		jtype.setCommentend("*/");
 		typeMap.put("java", jtype);
@@ -105,6 +106,7 @@ public class Main {
 		Filetype xtype = new Filetype();
 		xtype.setName("XML");
 		xtype.setExtensions("xml");
+		xtype.setOutextension("xml");
 		xtype.setCommentbegin("<!--");
 		xtype.setCommentend("-->");
 		typeMap.put("xml", xtype);
